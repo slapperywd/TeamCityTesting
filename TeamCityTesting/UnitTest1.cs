@@ -1,5 +1,7 @@
 ﻿namespace TeamCityTesting
 {
+    using System;
+
     using OpenQA.Selenium;
     using OpenQA.Selenium.Chrome;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -11,6 +13,7 @@
 
         public UnitTest1()
         {
+            Console.WriteLine("Setting up Chrome driver ...");
             this.driver = new ChromeDriver();
             this.driver.Manage().Window.Maximize();
             this.driver.Navigate().GoToUrl("https://www.jetbrains.com/");
@@ -27,6 +30,7 @@
         [TestCleanup]
         public void TestCleanUp()
         {
+            Console.WriteLine("Closing Chrome driver ...");
             this.driver.Quit();
         }
     }
